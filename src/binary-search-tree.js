@@ -8,11 +8,11 @@ const { Node } = require('../extensions/list-tree.js');
 class BinarySearchTree {
 
   constructor() {
-    this.root = null;
+    this.tree = null;
   }
 
   root() {
-    return this.root.value;
+    return this.tree
     // remove line with error and write your code here
   }
 
