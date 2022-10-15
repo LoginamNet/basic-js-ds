@@ -66,8 +66,45 @@ class BinarySearchTree {
     // remove line with error and write your code here
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  remove(data) {
+      function removeData(node, data) {
+      if (!node) return null;
+      if (node.data > data) {
+        node.left = removeData(node.left, data);
+        return node;
+      } else if (node.data < data) {
+        node.right = removeData(node.right, data);
+        return node;
+      } else {
+
+        if (!node.left && !node.right) {
+          return null;
+        } else 
+
+        if (!node.left) {
+          node = node.right;
+          return node;
+        }
+
+        if (!node.right) {
+          node = node.left;
+          return node;
+        }
+
+        let rightMin = node.right;
+
+        while (rightMin.left) {
+          rightMin = rightMin.left;
+        }
+
+        node.data = rightMin.data;
+        node.right = removeData(node.right, rightMin.data);
+
+        return node;
+      }
+    }
+
+    this.tree = removeData(this.tree, data);
     // remove line with error and write your code here
   }
 
