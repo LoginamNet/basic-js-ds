@@ -34,13 +34,35 @@ class BinarySearchTree {
     // remove line with error and write your code here
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  has(data) {
+    function hasData(node, data) {
+      if (!node) return false;
+      if (node.data === data) return true;
+
+      if (node.data > data) {
+        return hasData(node.left, data)
+      } else if (node.data < data) {
+        return hasData(node.right, data)
+      }
+    }
+
+    return hasData(this.tree, data);
     // remove line with error and write your code here
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  find(data) {
+    function findData(node, data) {
+      if (!node) return null;
+      if (node.data === data) return node;
+
+      if (node.data > data) {
+        return findData(node.left, data)
+      } else if (node.data < data) {
+        return findData(node.right, data)
+      }
+    }
+
+    return findData(this.tree, data);
     // remove line with error and write your code here
   }
 
@@ -72,7 +94,6 @@ class BinarySearchTree {
     }
 
     return max.data;
-    // remove line with error and write your code here
     // remove line with error and write your code here
   }
 }
