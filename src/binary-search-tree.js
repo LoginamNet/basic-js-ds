@@ -20,7 +20,7 @@ class BinarySearchTree {
     function addData(node, data) {
       if (!node) return new Node(data);
       if (node.data === data) return node;
-      
+
       if (node.data > data) {
         node.left = addData(node.left, data)
       } else if (node.data < data) {
@@ -50,12 +50,29 @@ class BinarySearchTree {
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
+    if (!this.tree) return null;
+
+    let min = this.tree;
+
+    while (min.left) {
+      min = min.left;
+    }
+
+    return min.data;
     // remove line with error and write your code here
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
+    if (!this.tree) return null;
+
+    let max = this.tree;
+
+    while (max.right) {
+      max = max.right;
+    }
+
+    return max.data;
+    // remove line with error and write your code here
     // remove line with error and write your code here
   }
 }
